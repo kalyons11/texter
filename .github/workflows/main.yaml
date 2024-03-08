@@ -14,3 +14,5 @@ jobs:
         run: python main.py
         env:
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+          GMAIL_EMAIL: ${{ secrets.GMAIL_EMAIL }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
