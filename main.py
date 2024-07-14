@@ -20,4 +20,4 @@ recipient = phone_number + "@vtext.com"
 message = "Test message."
 
 server.sendmail(email, recipient, message)
-logging.info("Sent message")
+logging.info("Sent out message")
