@@ -16,11 +16,10 @@ smtp_port = 587
 
 recipient = phone_number + "@vtext.com"
 
-def send(message: str):
-    server = smtplib.SMTP(smtp_host, smtp_port)
-    server.starttls()
-    server.login(email, password)
+server = smtplib.SMTP(smtp_host, smtp_port)
+server.starttls()
+server.login(email, password)
 
+def send(message: str):
     server.sendmail(email, recipient, message)
     logging.info("Sent message.")
-    server.close()
