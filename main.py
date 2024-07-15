@@ -10,4 +10,4 @@ def get_git_revision_short_hash() -> str:
 current_time_iso = datetime.datetime.now().isoformat()
 current_revision_short_hash = get_git_revision_short_hash()
 
-send.send(f"{current_time_iso} - {current_revision_short_hash}")
+send.send(f"Hello there. {current_time_iso} - {current_revision_short_hash}")
