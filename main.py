@@ -1,23 +1,11 @@
-"""
-https://medium.com/testingonprod/how-to-send-text-messages-with-python-for-free-a7c92816e1a4
-"""
+import datetime
+import subprocess
 
-import os
-import smtplib
-import logging
+import send
 
 
-phone_number = os.environ['PHONE_NUMBER']
-email = os.environ['GMAIL_EMAIL']
-password = os.environ['GMAIL_PASSWORD']
+def get_git_revision_short_hash() -> str:
+    return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode('ascii').strip()
 
-smtp_port = 587
-server = smtplib.SMTP('smtp.gmail.com', smtp_port)
-server.starttls()
-server.login(email, password)
-
-recipient = phone_number + "@vtext.com"
-message = "Test message."
-
-server.sendmail(email, recipient, message)
-logging.info("Sent message")
+current_time = datetime.datetime.now().isoformat()
+send.send(f"{current_time}\n{get_git_revision_short_hash()}")
